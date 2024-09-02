@@ -1,5 +1,6 @@
 package com.xiaoyue.projectmanagement.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -22,6 +23,7 @@ public class User {
     private String fullName;
     private String password;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "assignee",cascade = CascadeType.ALL)
     private List<Issue> assignedIssues =new ArrayList<>();
 
